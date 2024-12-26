@@ -45,8 +45,8 @@ async fn main() {
     let cors = CorsLayer::new()
         .allow_methods([Method::GET, Method::POST])
         .allow_origin(Any)
-        .allow_headers((CONTENT_TYPE));
-    
+        .allow_headers([CONTENT_TYPE]);
+
     let app = create_router(Arc::new(AppState { db: pool.clone() }))
         .layer(cors);
     /*
